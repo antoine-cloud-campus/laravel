@@ -14,17 +14,22 @@ return new class extends Migration
         Schema::create('settings', function (Blueprint $table) {
             $table->id();
 
-            $table->foreignId('user_id')
-                ->constrained()
-                ->cascadeOnDelete()
-                ->unique(); // One-to-One
+            $table->unsignedBigInteger('user_id');
 
             $table->string('theme');
             $table->string('lang');
 
             $table->timestamps();
+
+            $table->foreign('user_id')
+                ->references('id')
+                ->on('users')
+                ->onDelete('cascade');
+
+            $table->unique('user_id');
         });
     }
+
 
 
     /**
