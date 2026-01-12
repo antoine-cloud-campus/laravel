@@ -12,13 +12,9 @@ class OrderSeeder extends Seeder
     {
         $user = User::where('email', 'test@example.com')->first();
 
-        if ($user) {
-            Order::create([
-                'user_id' => $user->id,
-                'amount' => 50,
-                'status' => 'paid',
-            ]);
-        }
+        $user->orders()->create([
+            'amount' => 50,
+            'status' => 'paid',
+        ]);
     }
 }
-
