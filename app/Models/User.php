@@ -15,6 +15,11 @@ class User extends Model
         'password',
     ];
 
+    public function orders()
+    {
+        return $this->hasMany(Order::class);
+    }
+
     public function settings()
     {
         return $this->hasOne(Settings::class);
