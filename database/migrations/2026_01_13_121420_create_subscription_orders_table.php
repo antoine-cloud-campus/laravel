@@ -13,10 +13,11 @@ return new class extends Migration
     {
         Schema::create('subscription_orders', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
             $table->string('name');
             $table->decimal('price', 8, 2);
             $table->integer('duration_months');
+            $table->timestamps();
+
         });
     }
 
