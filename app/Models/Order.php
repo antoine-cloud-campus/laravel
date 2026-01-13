@@ -11,9 +11,13 @@ class Order extends Model
         'status',
     ];
 
+    public function orderable()
+    {
+        return $this->morphTo();
+    }
+
     public function user()
     {
         return $this->belongsTo(User::class);
     }
 }
-
