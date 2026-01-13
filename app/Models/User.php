@@ -15,13 +15,18 @@ class User extends Model
         'password',
     ];
 
+    public function settings()
+    {
+        return $this->hasOne(Settings::class);
+    }
+
     public function orders()
     {
         return $this->hasMany(Order::class);
     }
 
-    public function settings()
+    public function groups()
     {
-        return $this->hasOne(Settings::class);
+        return $this->belongsToMany(Group::class)->withTimestamps();
     }
 }
