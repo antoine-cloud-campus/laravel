@@ -18,7 +18,7 @@ return new class extends Migration
                 ->constrained('users')
                 ->cascadeOnDelete();
 
-            $table->integer('amount');
+            $table->decimal('amount', 8, 2);
             $table->string('status');
 
             $table->timestamps();
